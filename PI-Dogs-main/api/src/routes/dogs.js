@@ -18,7 +18,7 @@ const dogsApi = async ()=> {
             weightMin:wgt[0],
             weightMax: wgt[1],
             life_span : dog.life_span,
-            temp : dog.temperament,
+            temp: dog.temperament,
             image: dog.image.url,
         }
     })
@@ -62,8 +62,8 @@ router.get ('/',async (req , res)=>{
     }
 }) 
 
-router.post('/', async function(req, res, next) {
-    const {name, heightmin,heightmax, weightmin,weightmax, life_span,image } = req.body
+router.post('/dog', async function(req, res, next) {
+    const {name, heightmin,heightmax, weightmin,weightmax, life_span,image ,temp } = req.body
     const createdDog = await Dog.create({
       name,
       life_span,
@@ -72,6 +72,7 @@ router.post('/', async function(req, res, next) {
       weightmin,
       weightmax,
       image,
+      temp,
     });
     res.send(createdDog)
   });
