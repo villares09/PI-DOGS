@@ -22,7 +22,7 @@ const dogsApi = async ()=> {
             image: dog.image.url,
         }
     })
-    return dogMap
+   return dogMap;
 }
 
     
@@ -48,7 +48,6 @@ const dogsApi = async ()=> {
      return allMap;
  }
 
-
 router.get ('/',async (req , res)=>{
     const name = req.query.name
     let allDogs = await getAllDogs();
@@ -63,14 +62,14 @@ router.get ('/',async (req , res)=>{
 }) 
 
 router.post('/dog', async function(req, res, next) {
-    const {name, heightmin,heightmax, weightmin,weightmax, life_span,image ,temp } = req.body
+    const {name, heightMin,heightMax, weightMin,weightMax, life_span,image ,temp } = req.body
     const createdDog = await Dog.create({
       name,
       life_span,
-      heightmin,
-      heightmax,
-      weightmin,
-      weightmax,
+      heightMin,
+      heightMax,
+      weightMin,
+      weightMax,
       image,
       temp,
     });
@@ -81,7 +80,7 @@ router.post('/dog', async function(req, res, next) {
     const id= req.params.id;
     const dogsTotal = await getAllDogs()
     if(id){
-        let dogId = await dogsTotal.filter(el => el.id == id)
+        let dogId = dogsTotal.filter(el => el.id == parseInt(id))
         dogId.length?
         res.status(200).json(dogId):
         res.status(404).send("race couldnt found")
