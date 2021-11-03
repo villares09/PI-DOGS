@@ -6,7 +6,7 @@ import { useEffect} from "react";
 
 
 export default function Detail(props){
-    console.log(props)
+    // console.log(props)
     const dispatch = useDispatch()
     
     useEffect (()=>{
@@ -14,15 +14,16 @@ export default function Detail(props){
     },[dispatch])
 
     const myDogs = useSelector ((state)=> state.detail)
-
+    // console.log("que onda esto",myDogs[0])
     return (
         <div>
             {
                 myDogs?.length > 0 ?
                 <div>
-                    <h1>Hi my name is :{myDogs[0].name} </h1>
+                    <h1>Hi my breed is :{myDogs[0].name} </h1>
                     <img src= {myDogs[0].img? myDogs[0].img : myDogs[0].image} alt="Not Found" width="200px" height="200px"/>
-                    <h2>Temperaments :{myDogs.temp} </h2>
+                    <h3>Temperaments :{!myDogs[0].createinDataBase? myDogs[0].temp :myDogs[0].Temperaments.map(el => el.name).join(" ,") } </h3>
+                    {/* {console.log("hola",myDogs[0].Temperaments.map(el=> el.name + (" ")))} */}
                     <label>Weight Min :{myDogs[0].weightMin} Weight Max :{myDogs[0].weightMax} </label>
                     <label>Height Min :{myDogs[0].heightMin} Height Max :{myDogs[0].heightMax} </label>
                     <h2>Life span :{myDogs[0].life_span} </h2>

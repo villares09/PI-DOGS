@@ -28,9 +28,6 @@ export default function Home (){
         dispatch(getDogs());
         dispatch(getTemperaments());
            },[dispatch])
-    //  useEffect(()=>{
-    //     dispatch(getTemperaments());
-    //         },[])
 
     function handleClick(e){
     e.preventDefault();
@@ -99,7 +96,7 @@ export default function Home (){
                       image= {c.image}
                       weightMin= {c.weightMin} 
                       weightMax = {c.weightMax}
-                      temp= {c.temp}
+                      temp= {c.temp? c.temp : c.Temperaments}
                        />
                       </Link>
                   </div>

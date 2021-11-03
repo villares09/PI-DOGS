@@ -7,7 +7,7 @@ export default  function Card ({ name , image, weightMin , weightMax, temp}){
             <h3>{name}</h3>
             <label>WeightMin:{weightMin} WeightMax:{weightMax}</label>
             
-            <h3>{temp}</h3>
+            <h3>{!Array.isArray(temp)? temp :temp.map(el => el.name).join(',')}</h3>
         </div>
     );
 }

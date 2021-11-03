@@ -30,15 +30,18 @@ const dogsApi = async ()=> {
 
 
  const databaseDog = async () => {
-              return await Dog.findAll({
+              const dogsDb= await Dog.findAll({
                      include: {
                          model: Temperament,
-                         attributes : ['name'],
+                         attributes :{
+                            include: ['name'],
+                         },
                          through: {
-                         attributes: [],
-                     },
+                            attributes:[]
+                      }
                  }
-             })
+             });
+             return dogsDb
         }
 
  const getAllDogs = async ()=>{
@@ -53,6 +56,7 @@ router.get ('/',async (req , res)=>{
     let allDogs = await getAllDogs();
     if(name){
         let dogsName = await allDogs.filter(all => all.name.toLowerCase().includes(name.toLowerCase()))
+        
         dogsName.length?
         res.status(200).send(dogsName) :
         res.status(404).send('Name of dog not found');
@@ -62,8 +66,8 @@ router.get ('/',async (req , res)=>{
 }) 
 
 router.post('/dog', async function(req, res, next) {
-    const {name, heightMin,heightMax, weightMin,weightMax, life_span,image ,temp } = req.body
-    const createdDog = await Dog.create({
+    let {name,heightMin,heightMax,weightMin,weightMax,life_span,image,temp} = req.body
+    let createdDog = await Dog.create({
       name,
       life_span,
       heightMin,
@@ -71,8 +75,14 @@ router.post('/dog', async function(req, res, next) {
       weightMin,
       weightMax,
       image,
-      temp,
     });
+    temp.map(async el =>{
+        let dogDb = await Temperament.findAll({
+            where:{name: temp},
+            include: [Dog]
+        })
+        createdDog.addTemperament(dogDb)
+    })
     res.send(createdDog)
   });
 
@@ -80,7 +90,7 @@ router.post('/dog', async function(req, res, next) {
     const id= req.params.id;
     const dogsTotal = await getAllDogs()
     if(id){
-        let dogId = dogsTotal.filter(el => el.id == parseInt(id))
+        let dogId = dogsTotal.filter(el => el.id == id)
         dogId.length?
         res.status(200).json(dogId):
         res.status(404).send("race couldnt found")

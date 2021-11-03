@@ -76,3 +76,10 @@ export function getDetail(id){
         }
     }
  }
+ export function createDog (payload){
+     return async function (dispatch){
+         const response = await axios.post ("http://localhost:3001/dogs/dog",payload)
+         console.log (response)
+         return response;
+     }
+ }
