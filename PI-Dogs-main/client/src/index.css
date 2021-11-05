@@ -1,8 +1,16 @@
 body {
-  margin: 0;
+  background: url("./assets/img/golden.jpg");
+  background-attachment: fixed; 
+  background-size: cover;
+  background-position: center;
+  margin: 0px; 
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    /* font-family: Alegreya,'Alegreya SC', serif; */
+    /* font-family: Dosis,'Dosis', sans-serif;  */
+    font-family: 'Comfortaa', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

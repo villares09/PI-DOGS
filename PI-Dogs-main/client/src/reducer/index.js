@@ -51,7 +51,7 @@ function rootReducer (state = initialState , action){
                        if (a.name.toLowerCase() > b.name.toLowerCase()){
                            return -1;
                        }
-                       if (b.name.toLowerCase() > b.name.toLowerCase()){
+                       if (b.name.toLowerCase() > a.name.toLowerCase()){
                            return 1;
                        } return 0;
                    })      
@@ -61,20 +61,22 @@ function rootReducer (state = initialState , action){
 
                    }
             case ORDER_BY_WEIGHT:
-                let sortedArr2 = action.payload === "asc"? state.dogs.sort (function (a,b){
-                    if (parseInt(a.weightMax) > parseInt(b.weightMax)){
+                const Nan= state.dogs.filter(e=> !isNaN(e.weight? e.weight[0]:e.weightMin))
+                let sortedArr2 = action.payload === "asc"? Nan.sort (function (a,b){
+                    if(parseInt(a.weight? a.weight[0] : a.weighMin) > parseInt(b.weight? b.weight[0] : b.weightMin)){
                         return 1;
                     }
-                    if (parseInt(b.weightMax) >parseInt(a.weightMax)){
-                        return -1;
-                    } return 0;
+
+                    if(parseInt(b.weight? b.weight[0] : b.weightMin) > parseInt(a.weight? a.weight[0] : a.weightMin)){
+                        return -1
+                    }return 0;
                 }):
                 state.dogs.sort(function (a,b){
-                    if (parseInt(a.weightMin) > parseInt(b.weightMin)){
-                        return -1;
+                    if(parseInt(a.weight? a.weight[0] : a.weightMin) > parseInt(b.weight? b.weight[0] : b.weightMin)){
+                        return -1
                     }
-                    if (parseInt(b.weightMin) >parseInt(a.weightMin)){
-                        return 1;
+                    if(parseInt(b.weight? b.weight[0] : b.weightMin) > parseInt(a.weight? a.weight[0] : a.weightMin)){
+                        return 1
                     } return 0;
                 }) 
                 return {
