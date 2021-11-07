@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+.danger {
+    color: red;
+    font-size: 20px;
+    text-shadow: #020100 1px 1px 20px;
+}
+
+.inputDanger {
+    border-color: red;
+    list-style: none;
+}
+
+.background {
+    background-size: 100%;
+    padding: 240px;
+}
+
+.label {
+    font-family: Irish+Grover;
+    font-weight: bold;
+    list-style: none;
+    margin-top: 10px;
+    font-size: large;
+    color: rgb(246, 249, 250);
+    text-shadow: #080800 1px 1px 20px;
+}
+
+.select {
+    width: 150px;
+    height: 40px;
+    display:inline-block;
+    justify-content: center;
+    border-color: solid black;
+    border-radius: 20px;
+    text-align: center;
+    font-family: Irish+Grover;
+    background-color: white;
+    list-style: none;
+}
+
+.button {
+    font-family: Irish+Grover;
+    color: solid black;
+    border-color: solid black;
+    background-color: rgb(248, 248, 246);
+    border-radius: 999px;
+    color: solid black;
+    font-size: 15px;
+    font-weight: 800;
+    width: 70px;
+    height: 60px;
+}
+
+.input {
+    font-family: Irish+Grover;
+    color: solid black;
+    border-color: solid black;
+    background-color: white;
+    border-radius: 999px;
+    color: solid black;
+    font-size: 25px;
+    font-weight: 800;
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+}
+.botonDel{
+    font-family: Montserrat;
+    color: solid black;
+    border-color: solid black;
+    background-color: rgb(246, 255, 126);
+    border-radius: 999px;
+    color: solid black;
+    font-size: 15px;
+    font-weight: 800;
+    width: 70px;
+    height: 60px;
+}
+.form{
+    display:grid;
+    flex-direction:row;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-template-columns: repeat(4, 1fr);
+}

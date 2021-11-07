@@ -1,0 +1,28 @@
+.search{
+    font-family: Comfortaa;
+font-size: 20px;
+color: rgb(80, 255, 95);
+text-shadow: #0582ff 1px 1px 20px;
+border: transparent;
+overflow: hidden;
+border-radius: 6px;
+box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+transition: all 400ms ease-out;
+background: rgb(248, 248, 248);
+}
+.looking{
+    font-family: Comfortaa;
+    font-size: 20px;
+    color: rgb(30, 105, 148);
+    text-shadow: #00050a 1px 1px 20px;
+    border: transparent;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    transition: all 400ms ease-out;
+    background: transparent;
+}
+.looking:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-3%);
+}

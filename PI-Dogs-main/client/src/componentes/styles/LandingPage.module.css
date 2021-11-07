@@ -11,5 +11,11 @@
     
 }
 .image:hover{
-    transform :scale(1.5);
+    transform :scale(1.2);
+}
+h1{
+    font-family: Comfortaa;
+font-size: 40px;
+color: rgb(251, 251, 251);
+text-shadow: rgb(0, 0, 0) 1px 1px 20px;
 }

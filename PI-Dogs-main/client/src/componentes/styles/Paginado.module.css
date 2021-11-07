@@ -1,0 +1,25 @@
+
+  .crumb { 
+  font-size: 14px;
+  box-shadow: 6px 7px 8px -6px rgba(69,69,69,0.7);
+  color: white;
+  background-color: rgb(18, 42, 41);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border-radius: 3px 3px 3px 3px;
+  cursor: pointer;
+  }
+  .crumb:hover, .crumb__active {
+    justify-content: space-around;
+    font-size: 14px;
+    transition: transform 1s;
+    display: flex;
+    background-color: rgb(2, 92, 2);
+    color: #f6f6f8;
+    border-color: #026846;
+  }
+  .nav{
+    z-index: 0;
+    max-width: 800px;
+  }

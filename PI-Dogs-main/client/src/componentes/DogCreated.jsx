@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import { Link , useHistory} from "react-router-dom";
 import { createDog, getTemperaments } from "../actions";
 import { useDispatch, useSelector} from "react-redux";
+import styles from "./styles/DogCreated.module.css"
 
 function validate (input){
     let errors = {};
@@ -47,7 +48,7 @@ export default function DogCreated (){
             ...input,
             [e.target.name]:e.target.value
         }));
-        console.log(input)
+        
     }
     function handleSelect (e){
         setInput({
@@ -77,114 +78,122 @@ export default function DogCreated (){
         })
         history.push('/home')
     }
-
-    useEffect (()=>{
+  
+     useEffect (()=>{
         dispatch (getTemperaments())
         
     },[])
 
+    
     return (
-        <div>
+        <div className={styles.background}>
             <Link to = "/home">
-                <button>Back</button>
+                <button className = {styles.button}>Back</button>
             </Link>
+            <div className={styles.label}>
             <h1>Create your own dog!</h1>
-            <form onSubmit = {(e)=> handleSubmit(e)}>
-                <div>
+            </div>
+            <form className = {styles.form} onSubmit = {(e)=> handleSubmit(e)}>
+                <div className={styles.label}>
                     <label>Name:</label>
-                    <input 
+                    </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.name}
                     name = "name"
                     onChange = {handleChange}
                     />
                     {errors.name && (
-                        <p className = "error">{errors.name}</p>
+                        <p className = {styles.danger}>{errors.name}</p>
                     )}
-                </div>
-                <div>
+                <div className={styles.label}>
                 <label>Life Span:</label>
-                    <input 
+                </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.life_span}
                     name = "life_span"
                     onChange = {handleChange}
                     />
                     {errors.life_span && (
-                        <p className = "error">{errors.life_span}</p>
+                        <p className = {styles.danger}>{errors.life_span}</p>
                     )}
-                </div>
-                <div>
+                <div className={styles.label}>
                 <label>Height Mainimum:</label>
-                    <input 
+                </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.heightMin}
                     name = "heightMin"
                     onChange = {handleChange}
                     />
                     {errors.heightMin && (
-                        <p className = "error">{errors.heightMin}</p>
+                        <p className = {styles.danger}>{errors.heightMin}</p>
                     )}
-                </div>
-                <div>
+                <div className={styles.label}>
                 <label>Height Maximum:</label>
-                    <input 
+                </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.heightMax}
                     name = "heightMax"
                     onChange = {handleChange}
                     />
                     {errors.heightMax && (
-                        <p className = "error">{errors.heightMax}</p>
+                        <p className = {styles.danger}>{errors.heightMax}</p>
                     )}
-                </div>
-                <div>
+                <div className={styles.label}>
                 <label>Weight Minimum:</label>
-                    <input 
+                </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.weightMin}
                     name = "weightMin"
                     onChange = {handleChange}
                     />
                     {errors.weightMin && (
-                        <p className = "error">{errors.weightMin}</p>
+                        <p className = {styles.danger}>{errors.weightMin}</p>
                     )}
-                </div>
-                <div>
+                <div className={styles.label}>
                 <label>Weight Maximum:</label>
-                    <input 
+                </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.weightMax}
                     name = "weightMax"
                     onChange = {handleChange}
                     />
                     {errors.weightMax && (
-                        <p className = "error">{errors.weightMax}</p>
+                        <p className = {styles.danger}>{errors.weightMax}</p>
                     )}
-                </div>
-                <div>
+                <div className={styles.label}>
                 <label>Image:</label>
-                    <input 
+                </div>
+                    <input className={styles.input}
                     type = "text"
                     value = {input.image}
                     name = "image"
                     onChange = {handleChange}
                     />
-                </div>
-                <select onChange = {(e)=> handleSelect(e)}>
+                    <div className={styles.label}>
+                    <li>
+                        <label>Temperaments:</label>
+                    </li>
+                    </div>
+                <select className={styles.select} onChange = {(e)=> handleSelect(e)}>
                     {
                         temp.map((temp)=> (
-                            <option value={temp.name}>{temp.name}</option>
+                            <option className = {styles.option} value={temp.name}>{temp.name}</option>
                         ))
                     }
                 </select>
                 <ul><li>{input.temp.map(el=> el + " ,")}</li></ul>
-                <button type = "submit">Create Dog</button>
+                <button className={styles.button} type = "submit">Create Dog</button>
             </form>
             {input.temp.map(el => 
-                <div className = "divDel">
+                <div>
                     <p>{el}</p>
-                    <button className = "botonDel" onClick= {()=> handleDelete(el)}>X</button>
+                    <button className = {styles.button} onClick= {()=> handleDelete(el)}>X</button>
                 </div>
                 )}
         </div>

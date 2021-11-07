@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 import CardDogs from "./CardDogs"
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import styles from "./styles/Home.module.css"
 
 
 export default function Home (){
@@ -56,27 +57,28 @@ export default function Home (){
 
     return (
         <div>
-        <Link to = "/dog">Create a new Dog</Link>
-        <h1>Here we can appreciate all the Dog breeds</h1>
-        <button onClick ={e => {handleClick(e)}}>
+        <Link  to = "/dog"><button className= {styles.newdog}> Create a new Dog</button></Link>
+        <h1 className={styles.name} >HouseOfDogs</h1>
+        <h1 className= {styles.h1}>Here we can appreciate all the Dog breeds</h1>
+        <button className={styles.newdogs} onClick ={e => {handleClick(e)}}>
              Reload back the dogs
         </button>
         <SearchBar/>
-          <select onChange={(e)=>handleSort(e)}>
+          <select className={styles.newdog} onChange={(e)=>handleSort(e)}>
               <option value = "Asc">Sort Ascending</option>
               <option value = "Des">Sort Descending</option>
           </select>
-          <select onChange= {e => handleSortWeight(e)}>
+          <select className={styles.newdog} onChange= {e => handleSortWeight(e)}>
                    <option value= 'asc'>WEIGHT LIGHT</option>
                    <option value= 'des'>WEIGHT HEAVY</option>
           </select>
-         <select onChange={(e)=>handleFilterTemp(e)}>
-                    <option name='temp' key={'a'}>Temperaments</option>
+         <select className={styles.newdog} onChange={(e)=>handleFilterTemp(e)}>
+                    <option  name='temp' key={'a'}>Temperaments</option>
                     {allTemperaments.map((tem,i)=>(
                         <option name='temperaments'key={i} value={tem.name}>{tem.name}</option>
                         ))}
          </select>
-         <select onChange= {e => handlefilterCreated(e)}>
+         <select className={styles.newdog} onChange= {e => handlefilterCreated(e)}>
                    <option value= 'Dogs'>AllDogs</option>
                    <option value= 'created'>Created</option>
                    <option value= 'api'>Breeds</option>
@@ -86,26 +88,26 @@ export default function Home (){
         allDogs = {allDogs.length}
         paginado = {paginado}
         />   
+        <div className = {styles.cards}>
           {currentDogs?.map((c)=>{
               return (
-                  <div>
-                      <Link to= {"/home/" + c.id}>
+                  <div className = {styles.contenedor}>                     
                      <CardDogs
-                      key = {c.id}
+                      id = {c.id}
                       name={c.name} 
                       image= {c.image}
                       weightMin= {c.weightMin} 
                       weightMax = {c.weightMax}
                       temp= {c.temp? c.temp : c.Temperaments}
-                       />
-                      </Link>
-                  </div>
+                      />
+                      </div>
               )
           })
               
           }
         </div>
-        
+
+        </div>
     )
 }
 

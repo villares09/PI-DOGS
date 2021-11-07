@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+.cards{
+    display: grid;
+    flex-direction: column;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-template-columns: repeat(4, 1fr);
+}
+.newdog{
+font-family: Comfortaa;
+font-size: 20px;
+color: rgb(30, 105, 148);
+text-shadow: #000500 1px 1px 20px;
+border: transparent;
+overflow: hidden;
+border-radius: 6px;
+box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+transition: all 400ms ease-out;
+background: transparent;
+}
+.newdog:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-3%);
+}
+.h1{
+font-family: Comfortaa;
+font-size: 40px;
+color: rgb(251, 251, 251);
+text-shadow: rgb(0, 0, 0) 1px 1px 20px;
+}
+.name{
+    font-family: Comfortaa;
+font-size: 50px;
+color: rgb(255, 255, 255);
+text-shadow: rgb(0, 0, 0) 1px 1px 20px;
+}
+.newdogs{
+font-family: Comfortaa;
+font-size: 20px;
+color: rgb(30, 105, 148);
+text-shadow: #000500 1px 1px 20px;
+border: transparent;
+overflow: hidden;
+border-radius: 6px;
+box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+transition: all 400ms ease-out;
+background: transparent;
+cursor: pointer;
+}
+.newdogs:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-3%);
+}
