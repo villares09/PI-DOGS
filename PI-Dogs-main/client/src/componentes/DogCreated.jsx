@@ -101,7 +101,7 @@ export default function DogCreated (){
                     type = "text"
                     value = {input.name}
                     name = "name"
-                    onChange = {handleChange}
+                    onChange = {handleChange} required
                     />
                     {errors.name && (
                         <p className = {styles.danger}>{errors.name}</p>
@@ -113,7 +113,7 @@ export default function DogCreated (){
                     type = "text"
                     value = {input.life_span}
                     name = "life_span"
-                    onChange = {handleChange}
+                    onChange = {handleChange} required
                     />
                     {errors.life_span && (
                         <p className = {styles.danger}>{errors.life_span}</p>
@@ -125,7 +125,7 @@ export default function DogCreated (){
                     type = "text"
                     value = {input.heightMin}
                     name = "heightMin"
-                    onChange = {handleChange}
+                    onChange = {handleChange} required
                     />
                     {errors.heightMin && (
                         <p className = {styles.danger}>{errors.heightMin}</p>
@@ -137,7 +137,7 @@ export default function DogCreated (){
                     type = "text"
                     value = {input.heightMax}
                     name = "heightMax"
-                    onChange = {handleChange}
+                    onChange = {handleChange} required
                     />
                     {errors.heightMax && (
                         <p className = {styles.danger}>{errors.heightMax}</p>
@@ -149,7 +149,7 @@ export default function DogCreated (){
                     type = "text"
                     value = {input.weightMin}
                     name = "weightMin"
-                    onChange = {handleChange}
+                    onChange = {handleChange} required
                     />
                     {errors.weightMin && (
                         <p className = {styles.danger}>{errors.weightMin}</p>
@@ -161,7 +161,7 @@ export default function DogCreated (){
                     type = "text"
                     value = {input.weightMax}
                     name = "weightMax"
-                    onChange = {handleChange}
+                    onChange = {handleChange} required
                     />
                     {errors.weightMax && (
                         <p className = {styles.danger}>{errors.weightMax}</p>
