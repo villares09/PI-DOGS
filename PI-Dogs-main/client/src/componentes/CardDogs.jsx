@@ -12,7 +12,7 @@ export default  function Card ({ name , image, weightMin , weightMax, temp, id})
             <div className = {styles.contenido}>
             <h3 className = {styles.h3}>{name}</h3>
             <label className = {styles.label}>WeightMin:{weightMin} WeightMax:{weightMax}</label>
-            <h3 className = {styles.h3}>{!Array.isArray(temp)? temp :temp.map(el => el.name).join(',')}</h3>
+            <h3 className = {styles.h3}>{!Array.isArray(temp)? temp :temp.map(el => el.name).join(' ,')}</h3>
             <Link to= {"/home/"+id}> <button className={styles.more}>More info</button> </Link>
             </div>
             </div>
