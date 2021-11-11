@@ -86,7 +86,7 @@ function rootReducer (state = initialState , action){
                 }
             case SEARCHBAR:
                     return{
-                     ...state ,
+                     ...state,
                      dogs: action.payload
                     }
             case GET_DETAILS:
@@ -99,7 +99,7 @@ function rootReducer (state = initialState , action){
                     ...state,
                  }            
                     default:
-                        return state;
+                    return state;
     }
 
 }

@@ -20,9 +20,9 @@ export default function SearchBar(){
 
     return(
         <div>
-            <form  onSubmit = {onSubmit}>
-                <input className = {styles.search} type="text" value= {search} onChange = {onImputChange} />
-                <input className = {styles.looking} type="submit" value= "Search" onSubmit = {onSubmit} />
+            <form onSubmit = {onSubmit}>
+                <input className = {styles.search} type="text" value= {search} onChange = {onImputChange}/>
+                <input className = {styles.looking} type="submit" value= "Search" onSubmit = {onSubmit}/>
             </form>
         </div>
     )
